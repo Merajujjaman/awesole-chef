@@ -11,12 +11,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/data')
+                loader: () => fetch('https://awesome-chef-server-three.vercel.app/data')
             },
             {
                 path: ':id',
                 element: <ChefDetails></ChefDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/data/${params.id}`)
+                loader: ({params}) => fetch(`https://awesome-chef-server-three.vercel.app/data/${params.id}`)
             }
         ]
     }
