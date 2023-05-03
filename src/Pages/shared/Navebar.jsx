@@ -15,7 +15,7 @@ const Navebar = () => {
                             <li><a>Blog</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case font-bold text-2xl">Awesome Chef</a>
+                    <a className="btn btn-ghost normal-case md:font-bold md:text-2xl">Awesome Chef</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
