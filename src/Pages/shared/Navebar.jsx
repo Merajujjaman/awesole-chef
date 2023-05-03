@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navebar = () => {
     return (
-        <div className='container mx-auto md:w-4/5'>
+        <div className='container mx-auto md:w-4/5 sticky top-0 z-50'>
             <div className="navbar bg-blue-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -28,6 +28,7 @@ const Navebar = () => {
                     <div className='me-2'>
                         <FaUserAlt className='text-3xl'></FaUserAlt>
                     </div>
+                    
 
                     <a className="btn">LogOut</a>
                 </div>

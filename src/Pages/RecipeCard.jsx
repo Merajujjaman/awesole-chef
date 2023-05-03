@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
-const RecipeCard = ({recipe}) => {
+const RecipeCard = ({ recipe }) => {
     // console.log(recipe)
     const [disable, setDisable] = useState(false)
     const notify = () => {
@@ -10,11 +10,13 @@ const RecipeCard = ({recipe}) => {
         return toast('Thanks for loving this Recipe!!')
     }
 
-    const {cookingMethod, recipeImage, recipeName, ingredients, rating} = recipe
+    const { cookingMethod, recipeImage, recipeName, ingredients, rating } = recipe
     return (
         <div className='my-8'>
             <div className="card w-full bg-base-100 shadow-xl">
-                <figure><img className='w-full' src={recipeImage} alt="foods image" /></figure>
+                
+                    <figure><img className='w-full h-96 object-cover' src={recipeImage} alt="foods image" /></figure>
+                
                 <div className="card-body">
                     <h2 className="card-title">
                         {recipeName}
