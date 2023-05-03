@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
     const { chefPicture, chefName, numberOfRecipes, yearsOfExperience, likes, id } = data
-    console.log(data)
+    // console.log(data)
     return (
         <div >
             <div className="card card-compact w-full bg-base-100 shadow-xl">
