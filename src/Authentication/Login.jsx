@@ -5,7 +5,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext)
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -33,10 +33,21 @@ const Login = () => {
             .then(result => {
                 const googleUser = result.user;
                 navigate(from, { replace: true })
-                navigate(from, { replace: true })
+
                 console.log(googleUser)
             })
             .catch(error => console.log(error))
+    }
+
+    // handle github login:
+    const handleGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                const githubUser = result.user;
+                navigate(from, { replace: true })
+
+                console.log(githubUser)
+            })
     }
 
 
@@ -75,12 +86,12 @@ const Login = () => {
 
                         <div className="form-control mt-6 mx-2">
                             <button className='btn btn-outline btn-primary' onClick={handleGoogleSignIn}>
-                            <FcGoogle className='mx-2'></FcGoogle> login with google
+                                <FcGoogle className='mx-2'></FcGoogle> login with google
                             </button>
                         </div>
                         <div className="form-control my-2 mx-2">
-                            <button className='btn btn-outline btn-secondary'>
-                            <FaGithub className='mx-2'></FaGithub>   login with github
+                            <button className='btn btn-outline btn-secondary' onClick={handleGithubSignIn}>
+                                <FaGithub className='mx-2'></FaGithub>   login with github
                             </button>
                         </div>
                     </div>
