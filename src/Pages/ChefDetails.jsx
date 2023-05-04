@@ -17,14 +17,15 @@ const ChefDetails = () => {
                 <div className="card-body md:w-1/2">
                     <h2 className="card-title">{chefName}</h2>
                     <p>{chefBio}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Listen</button>
-                    </div>
+
+                    <p className='text-lg font-bold text-gray-400'>Number of Recipes: <span className='text-green-400'>{numberOfRecipes}</span> </p>
+
+                    <p className='text-lg font-bold text-gray-400'>Year of experience:<span className='text-green-400'> {yearsOfExperience}</span></p>
                 </div>
             </div>
 
             <div className='md:w-3/5 mx-auto my-4'>
-                <p className='text-justify italic '>
+                <p className='text-justify italic p-3 '>
                     <span className='text-xl font-bold'>Hi there,</span> As a chef with a passion for creating delicious and unique recipes, I, <span className='text-green-400 font-semibold'>{chefName}</span>, am excited to share my culinary creations with you on my website. With years of experience in the kitchen, I have honed my skills and developed a keen sense of taste, allowing me to create recipes that are both flavorful and visually appealing.
 
                     My recipes are inspired by a variety of cuisines, and I am always experimenting with new ingredients and techniques to keep things fresh and interesting. Whether you're looking for a quick and easy weeknight meal or an impressive dish to serve at your next dinner party, my website has something for everyone.
