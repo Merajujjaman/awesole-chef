@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard';
 import Banner from '../shared/Banner';
+import Service from '../Service';
 
 const Home = () => {
     const ChefInfo = useLoaderData()
@@ -39,6 +40,12 @@ const Home = () => {
                         data={data}
                     ></ChefCard>)
                 }
+            </div>
+            
+            <div>
+                <h1 className='text-3xl text-center font-bold text-green-400 mt-6'>Our Services</h1>
+                <hr className='border-2 border-green-400 my-2'/>
+                <Service></Service>
             </div>
         </div>
     );
