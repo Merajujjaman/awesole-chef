@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from "react-icons/fc";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
 
     const navigate = useNavigate()
@@ -22,10 +24,14 @@ const Login = () => {
             .then(result => {
                 const logedUser = result.user;
                 console.log(logedUser)
+                toast('Login seccessfull !!')
                 navigate(from, { replace: true })
                 form.reset()
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setError(error.message)
+                console.log(error)
+            })
     }
     // handle google login:
     const handleGoogleSignIn = () => {
@@ -77,6 +83,12 @@ const Login = () => {
                                 <label className="label">
                                     <small>Don't have an account?<Link className='text-green-400 ps-2' to='/register'>Register</Link></small>
                                 </label>
+
+                                <label className="label">
+                                    <small className='text-pink-400'>
+                                        {error}
+                                    </small>
+                                </label>
                             </div>
                             <div className="form-control mt-6">
                                 <input className='btn btn-primary' type="submit" value="Login" />
@@ -94,6 +106,7 @@ const Login = () => {
                                 <FaGithub className='mx-2'></FaGithub>   login with github
                             </button>
                         </div>
+                        <Toaster></Toaster>
                     </div>
                 </div>
             </div>
