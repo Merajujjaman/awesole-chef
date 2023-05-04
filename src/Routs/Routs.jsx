@@ -5,25 +5,28 @@ import ChefDetails from "../Pages/ChefDetails";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import Blog from "../Pages/Blog";
+import PrivateRout from "./PrivateRout";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        children:[
+        children: [
             {
                 path: '/',
-                element:<Home></Home>,
+                element: <Home></Home>,
                 loader: () => fetch('https://awesome-chef-server-three.vercel.app/data')
             },
             {
                 path: ':id',
-                element: <ChefDetails></ChefDetails>,
-                loader: ({params}) => fetch(`https://awesome-chef-server-three.vercel.app/data/${params.id}`)
+                element: <PrivateRout>
+                    <ChefDetails></ChefDetails>
+                </PrivateRout>,
+                loader: ({ params }) => fetch(`https://awesome-chef-server-three.vercel.app/data/${params.id}`)
             },
             {
                 path: '/login',
-                element:<Login></Login>
+                element: <Login></Login>
             },
             {
                 path: '/register',

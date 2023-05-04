@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -18,6 +22,7 @@ const Login = () => {
             .then(result => {
                 const logedUser = result.user;
                 console.log(logedUser)
+                navigate(from, { replace: true })
                 form.reset()
             })
             .catch(error => console.log(error))
@@ -27,6 +32,8 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 const googleUser = result.user;
+                navigate(from, { replace: true })
+                navigate(from, { replace: true })
                 console.log(googleUser)
             })
             .catch(error => console.log(error))
