@@ -15,10 +15,10 @@ const RecipeCard = ({ recipe }) => {
         <div className='my-8'>
             <div className="card w-full bg-base-100 shadow-xl">
                 
-                    <figure><img className='w-full h-96 object-cover' src={recipeImage} alt="foods image" /></figure>
+                    <figure><img className='w-full md:h-96 object-cover' src={recipeImage} alt="foods image" /></figure>
                 
                 <div className="card-body">
-                    <h2 className="card-title text-3xl font-bold">
+                    <h2 className="card-title md:text-3xl font-bold">
                         {recipeName}
                         <div className="badge badge-secondary">rating: {rating}</div>
                     </h2>
