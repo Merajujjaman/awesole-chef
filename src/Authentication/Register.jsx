@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -8,6 +8,10 @@ import toast, { Toaster } from 'react-hot-toast';
 const Register = () => {
     const [error, setError] = useState('')
     const { createUser } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const from = location.state?.pathname || '/';
 
 
     const handleRegister = event => {
@@ -24,9 +28,10 @@ const Register = () => {
             .then(result => {
                 const newUser = result.user;
                 console.log(newUser);
-                toast('succesful, please login')
+                toast('Welcome to our Awesome-Chef')
                 form.reset()
                 setError('')
+                navigate(from, { replace: true })
 
             })
             .catch(error => {

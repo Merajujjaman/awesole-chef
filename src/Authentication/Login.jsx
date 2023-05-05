@@ -38,6 +38,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 const googleUser = result.user;
+                toast('Login seccessfull !!')
                 navigate(from, { replace: true })
 
                 console.log(googleUser)
@@ -50,9 +51,11 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 const githubUser = result.user;
+                console.log(githubUser)
+
+                toast('Login seccessfull !!')
                 navigate(from, { replace: true })
 
-                console.log(githubUser)
             })
     }
 
@@ -81,7 +84,7 @@ const Login = () => {
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
                                 <label className="label">
-                                    <small>Don't have an account?<Link className='text-green-400 ps-2' to='/register'>Register</Link></small>
+                                    <small>Don't have an account?<Link className='text-green-400 ps-2' to='/register' state={location?.state?.from} >Register</Link></small>
                                 </label>
 
                                 <label className="label">

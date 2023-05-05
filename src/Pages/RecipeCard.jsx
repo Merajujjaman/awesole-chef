@@ -20,7 +20,7 @@ const RecipeCard = ({ recipe }) => {
                 <div className="card-body">
                     <h2 className="card-title md:text-3xl font-bold">
                         {recipeName}
-                        <div className="badge badge-secondary">rating: {rating}</div>
+                        <div className="badge badge-secondary"> <p>rating: {rating}</p> </div>
                     </h2>
                     <hr className='border-2' />
                     <h2 className='text-2xl font-semibold text-green-500'>Ingredient:</h2>

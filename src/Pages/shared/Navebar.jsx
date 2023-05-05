@@ -56,7 +56,7 @@ const Navebar = () => {
                 <div className="navbar-end">
                     {
                         user && <div className='me-2'>
-                            <FaUserAlt className='text-3xl'></FaUserAlt>
+                            <FaUserAlt title={user.email && user.email} className='text-3xl'></FaUserAlt>
                         </div>
                     }
 
